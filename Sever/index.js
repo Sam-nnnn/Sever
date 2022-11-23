@@ -26,8 +26,7 @@ mongoose
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-// app.use("/api/user", authRoute);
-app.use("/.netlify/functions/api", authRoute);
+app.use("/api/user", authRoute);
 app.use(
   "/api/note",
   passport.authenticate("jwt", { session: false }),

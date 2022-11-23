@@ -27,7 +27,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.get("/", (req, res) => {
-  res.send("<h1>pages</h1>");
+  res.send("<h1>page</h1>");
 });
 app.use("/api/user", authRoute);
 app.use(

@@ -26,16 +26,15 @@ mongoose
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-app.get("/", (req, res) => {
-  res.send("<h1>page</h1>");
-});
-app.use("/api/user", authRoute);
+// app.use("/api/user", authRoute);
+app.use("/.netlify/functions/api", authRoute);
 app.use(
   "/api/note",
   passport.authenticate("jwt", { session: false }),
   noteRoute
 );
 
-app.listen(8080, () => {
-  console.log("Sever running on port 8080.");
-});
+// const PORT = process.env.PORT || 8080;
+// app.listen(PORT, () => {
+//   console.log("Sever running on port " + PORT);
+// });

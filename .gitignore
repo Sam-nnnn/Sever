@@ -1,2 +1,5 @@
 Sever/.env
 Sever/node_modules
+
+# Local Netlify folder
+.netlify

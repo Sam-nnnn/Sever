@@ -1,3 +1,4 @@
+const serverless = require("serverless-http");
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -33,6 +34,8 @@ app.use(
   noteRoute
 );
 
-app.listen(8080, () => {
-  console.log("Sever running on port " + 8080);
-});
+// app.listen(8080, () => {
+//   console.log("Sever running on port " + 8080);
+// });
+
+module.exports.handler = serverless(app);

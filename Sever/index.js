@@ -33,7 +33,6 @@ app.use(
   noteRoute
 );
 
-// const PORT = process.env.PORT || 8080;
-// app.listen(PORT, () => {
-//   console.log("Sever running on port " + PORT);
-// });
+app.listen(8080, () => {
+  console.log("Sever running on port " + 8080);
+});

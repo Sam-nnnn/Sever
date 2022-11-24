@@ -52,12 +52,15 @@ router.post("/register", async (req, res) => {
 // login post
 router.post("/login", (req, res) => {
   // ckeck ths validation of data
+  console.log(req.body);
   const { error } = loginValidation(req.body);
+  console.log(req.body);
   if (error) {
     return res.status(400).send(error.details[0].message);
   }
-
+  console.log(req.body);
   User.findOne({ email: req.body.email }, function (err, user) {
+    console.log(user);
     if (err) {
       return res.status(400).send(err);
     }
@@ -70,11 +73,11 @@ router.post("/login", (req, res) => {
         }
         if (isMatch) {
           const tokenObject = { _id: user._id, email: user.email };
-          const token = jwt.sign(tokenObject, process.env.PASSPORT_SECRET);
-          res.send({ success: true, token: "JWT " + token, user });
+          const token = jwt.sign(tokenObject, "PASSPORT_SECRET");
+          return res.send({ success: true, token: "JWT " + token, user });
         } else {
           console.log(err);
-          res.status(401).send("密碼錯誤");
+          return res.status(401).send("密碼錯誤");
         }
       });
     }

@@ -12,10 +12,13 @@ const cors = require("cors");
 
 // connect to DB
 mongoose
-  .connect(process.env.DB_CONNECT, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    "mongodb+srv://mongoDB0205:Samher900205@cluster0.tgyhydp.mongodb.net/?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() => {
     console.log("Connect to Mongo Altas");
   })

@@ -1,4 +1,4 @@
-const JwtStrategy = require("passport-jwt").Strategy;
+const JwtStrategy = require("passport-local").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
 const User = require("../models").userModel;
 const dotenv = require("dotenv");
@@ -7,7 +7,8 @@ dotenv.config();
 module.exports = (passport) => {
   let opts = {};
   opts.jwtFromRequest = ExtractJwt.fromAuthHeaderWithScheme("jwt");
-  opts.secretOrKey = process.env.PASSPORT_SECRET;
+  opts.secretOrKey = "PASSPORT_SECRET";
+  //
   passport.use(
     new JwtStrategy(opts, function (jwt_payload, done) {
       console.log("進入jwt驗證");

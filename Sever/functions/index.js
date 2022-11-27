@@ -35,7 +35,7 @@ app.use(
   "/api/note",
   passport.authenticate("jwt", {
     session: false,
-    failureMessage: { error: "錯誤" },
+    failureMessage: true,
   }),
   noteRoute
 );

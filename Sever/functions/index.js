@@ -33,7 +33,10 @@ app.use(cors());
 app.use("/api/user", authRoute);
 app.use(
   "/api/note",
-  passport.authenticate("jwt", { session: false }),
+  passport.authenticate("jwt", {
+    session: false,
+    failureMessage: { error: "錯誤" },
+  }),
   noteRoute
 );
 

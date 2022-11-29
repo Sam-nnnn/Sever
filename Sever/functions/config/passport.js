@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 module.exports = (passport) => {
+  console.log("進入身分驗證");
   let opts = {};
   opts.jwtFromRequest = ExtractJwt.fromAuthHeaderWithScheme("jwt");
   opts.secretOrKey = "PASSPORT_SECRET";

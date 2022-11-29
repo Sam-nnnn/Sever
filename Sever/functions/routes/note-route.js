@@ -8,6 +8,13 @@ router.use((req, res, next) => {
   next();
 });
 
+router.get("/test", (req, res) => {
+  const msgObj = {
+    message: "Test API is working.",
+  };
+  return res.json(msgObj);
+});
+
 router.post("/", async (req, res) => {
   // 驗證輸入
   const { error } = noteValidation(req.body);

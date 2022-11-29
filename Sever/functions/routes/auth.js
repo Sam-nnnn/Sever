@@ -14,7 +14,7 @@ router.use((req, res, next) => {
 
 router.get("/textAPI", (req, res) => {
   const msgObj = {
-    message: "Text API is working.",
+    message: "Test API is working.",
   };
   return res.json(msgObj);
 });
